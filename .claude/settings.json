@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -m pip show pandas)",
+      "Bash(pip3 --version)",
+      "Bash(pip3 install *)"
+    ]
+  }
+}
