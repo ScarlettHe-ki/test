@@ -7,8 +7,9 @@ DATA_DIR = ROOT_DIR / "data"
 PROCESSED_DATA_PATH = DATA_DIR / "processed_data.csv"
 CLEANED_REGION_DATA_PATH = DATA_DIR / "processed_data_region_clean.csv"
 REPORTS_DIR = ROOT_DIR / "reports"
+ANCHORED_EXPECTED_COUNTS_PATH = REPORTS_DIR / "expected_counts_anchored_test.csv"
 
-# Which file 01_sparsity_dispersion_check.py reads. Point this at
-# CLEANED_REGION_DATA_PATH to run diagnostics on the cleaned + coarsened
-# geography data produced by 00_clean_loss_region.py.
-ACTIVE_DATA_PATH = PROCESSED_DATA_PATH
+# Which file the pipeline scripts (01, 04, ...) read by default. The frozen
+# design (from 00-03) runs on the cleaned + coarsened geography data; point
+# this back at PROCESSED_DATA_PATH only to re-check diagnostics on the raw file.
+ACTIVE_DATA_PATH = CLEANED_REGION_DATA_PATH
