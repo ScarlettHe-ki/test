@@ -1,0 +1,49 @@
+method,j,r,trial,onset_window,S,time_to_detect,censored
+Poisson-MDSS,2,1.5,0,2022-Q1,"{'new_renewal': ['Renewal'], 'leader_status': ['LEAD']}",,True
+Poisson-MDSS,2,1.5,1,2023-Q3,"{'risk_code': ['P6'], 'new_renewal': ['Renewal']}",,True
+Poisson-MDSS,2,2.0,0,2023-Q2,"{'new_renewal': ['Renewal'], 'placing_basis_group': ['OPEN MARKET']}",,True
+Poisson-MDSS,2,2.0,1,2022-Q2,"{'leader_status': ['FOLLOW'], 'peril_type': ['Non-catastrophe - Mechanical Failure (NC-M)']}",,True
+Poisson-MDSS,2,3.0,0,2022-Q3,"{'leader_status': ['FOLLOW'], 'group_class': ['COMMERCIAL WW']}",,True
+Poisson-MDSS,2,3.0,1,2023-Q4,"{'syndicate': [2987.0], 'peril_type': ['Tropical Cyclone - Wind (TC)']}",,True
+Poisson-MDSS,3,1.5,0,2023-Q1,"{'leader_status': ['FOLLOW'], 'syndicate': [2987.0], 'group_class': ['COMMERCIAL NA OPEN MARKET']}",,True
+Poisson-MDSS,3,1.5,1,2022-Q1,"{'group_class': ['COMMERCIAL NA OPEN MARKET'], 'syndicate': [2987.0], 'new_renewal': ['Renewal']}",,True
+Poisson-MDSS,3,2.0,0,2023-Q2,"{'syndicate': [1618.0], 'group_class': ['COMMERCIAL NA OPEN MARKET'], 'peril_type': ['Tropical Cyclone - Wind (TC)']}",,True
+Poisson-MDSS,3,2.0,1,2023-Q4,"{'loss_census_division': ['Mountain'], 'syndicate': [2987.0], 'new_renewal': ['Renewal']}",,True
+Poisson-MDSS,3,3.0,0,2022-Q1,"{'new_renewal': ['New'], 'loss_census_division': ['South Atlantic'], 'leader_status': ['FOLLOW']}",,True
+Poisson-MDSS,3,3.0,1,2023-Q3,"{'new_renewal': ['Renewal'], 'leader_status': ['LEAD'], 'placing_basis_group': ['OPEN MARKET']}",,True
+moving_average_mdss,2,1.5,0,2022-Q1,"{'loss_census_division': ['Middle Atlantic'], 'new_renewal': ['Renewal']}",,True
+moving_average_mdss,2,1.5,1,2023-Q1,"{'new_renewal': ['Renewal'], 'loss_census_division': ['West South Central']}",,True
+moving_average_mdss,2,2.0,0,2022-Q2,"{'peril_type': ['Non-catastrophe - Pipeburst (NC-P)'], 'new_renewal': ['Renewal']}",,True
+moving_average_mdss,2,2.0,1,2023-Q3,"{'new_renewal': ['New'], 'loss_census_division': ['New England']}",,True
+moving_average_mdss,2,3.0,0,2022-Q2,"{'loss_census_division': ['West South Central'], 'group_class': ['COMMERCIAL NA OPEN MARKET']}",,True
+moving_average_mdss,2,3.0,1,2023-Q4,"{'group_class': ['COMMERCIAL NA OPEN MARKET'], 'new_renewal': ['Renewal']}",,True
+moving_average_mdss,3,1.5,0,2024-Q1,"{'syndicate': [2987.0], 'peril_type': ['Severe Storm - Severe Thunderstorm (ST)'], 'group_class': ['COMMERCIAL NA OPEN MARKET']}",,True
+moving_average_mdss,3,1.5,1,2023-Q2,"{'leader_status': ['FOLLOW'], 'placing_basis_group': ['OPEN MARKET - DIRECT'], 'peril_type': ['Non-catastrophe - Pipeburst (NC-P)']}",,True
+moving_average_mdss,3,2.0,0,2022-Q2,"{'peril_type': ['Severe Storm - Tornado (TD)'], 'new_renewal': ['Renewal'], 'syndicate': [1618.0]}",,True
+moving_average_mdss,3,2.0,1,2022-Q4,"{'risk_code': ['P6'], 'group_class': ['COMMERCIAL NA OPEN MARKET'], 'syndicate': [1618.0]}",,True
+moving_average_mdss,3,3.0,0,2023-Q4,"{'leader_status': ['FOLLOW'], 'syndicate': [2987.0], 'new_renewal': ['New']}",,True
+moving_average_mdss,3,3.0,1,2024-Q1,"{'risk_code': ['P2'], 'leader_status': ['FOLLOW'], 'loss_census_division': ['West South Central']}",,True
+fpgrowth_epm,2,1.5,0,2023-Q1,"{'group_class': ['COMMERCIAL NA OPEN MARKET'], 'loss_census_division': ['West South Central']}",,True
+fpgrowth_epm,2,1.5,1,2022-Q2,"{'placing_basis_group': ['OPEN MARKET - DIRECT'], 'risk_code': ['P6']}",,True
+fpgrowth_epm,2,2.0,0,2023-Q4,"{'syndicate': [1618.0], 'new_renewal': ['New']}",,True
+fpgrowth_epm,2,2.0,1,2022-Q2,"{'syndicate': [2987.0], 'new_renewal': ['New']}",,True
+fpgrowth_epm,2,3.0,0,2022-Q2,"{'group_class': ['COMMERCIAL WW'], 'leader_status': ['FOLLOW']}",3.0,False
+fpgrowth_epm,2,3.0,1,2023-Q3,"{'loss_census_division': ['Pacific'], 'new_renewal': ['New']}",,True
+fpgrowth_epm,3,1.5,0,2022-Q4,"{'leader_status': ['FOLLOW'], 'group_class': ['COMMERCIAL NA OPEN MARKET'], 'peril_type': ['Non-catastrophe - Vandalism (NC-V)']}",,True
+fpgrowth_epm,3,1.5,1,2023-Q1,"{'new_renewal': ['Renewal'], 'group_class': ['COMMERCIAL NA OPEN MARKET'], 'syndicate': [2987.0]}",,True
+fpgrowth_epm,3,2.0,0,2022-Q2,"{'group_class': ['COMMERCIAL NA OPEN MARKET'], 'peril_type': ['Non-catastrophe - Accident (NC-A)'], 'placing_basis_group': ['OPEN MARKET - DIRECT']}",,True
+fpgrowth_epm,3,2.0,1,2024-Q1,"{'peril_type': ['Severe Storm - Hail (HL)'], 'placing_basis_group': ['OPEN MARKET - DIRECT'], 'new_renewal': ['New']}",4.0,False
+fpgrowth_epm,3,3.0,0,2022-Q3,"{'leader_status': ['FOLLOW'], 'syndicate': [1618.0], 'loss_census_division': ['East South Central']}",,True
+fpgrowth_epm,3,3.0,1,2023-Q4,"{'syndicate': [2987.0], 'group_class': ['COMMERCIAL NA OPEN MARKET'], 'leader_status': ['FOLLOW']}",,True
+fgss,2,1.5,0,2023-Q3,"{'new_renewal': ['Renewal'], 'peril_type': ['Tropical Cyclone - Precipitation Flood (PF)']}",,True
+fgss,2,1.5,1,2022-Q1,"{'placing_basis_group': ['OPEN MARKET'], 'peril_type': ['Severe Storm - Tornado (TD)']}",,True
+fgss,2,2.0,0,2023-Q2,"{'group_class': ['COMMERCIAL NA OPEN MARKET'], 'peril_type': ['Other Perils - Wildfire/Bushfire (WF)']}",,True
+fgss,2,2.0,1,2023-Q4,"{'syndicate': [2987.0], 'leader_status': ['LEAD']}",,True
+fgss,2,3.0,0,2023-Q3,"{'placing_basis_group': ['OPEN MARKET'], 'loss_census_division': ['West North Central']}",,True
+fgss,2,3.0,1,2022-Q2,"{'peril_type': ['Severe Storm - Hail (HL)'], 'leader_status': ['LEAD']}",,True
+fgss,3,1.5,0,2024-Q1,"{'syndicate': [2987.0], 'new_renewal': ['Renewal'], 'leader_status': ['LEAD']}",,True
+fgss,3,1.5,1,2022-Q4,"{'new_renewal': ['Renewal'], 'group_class': ['COMMERCIAL NA OPEN MARKET'], 'leader_status': ['FOLLOW']}",,True
+fgss,3,2.0,0,2022-Q3,"{'leader_status': ['LEAD'], 'loss_census_division': ['West North Central'], 'group_class': ['COMMERCIAL NA OPEN MARKET']}",,True
+fgss,3,2.0,1,2023-Q3,"{'syndicate': [2987.0], 'risk_code': ['P2'], 'peril_type': ['Non-catastrophe - Theft (NC-T)']}",,True
+fgss,3,3.0,0,2023-Q3,"{'placing_basis_group': ['OPEN MARKET - DIRECT'], 'loss_census_division': ['West South Central'], 'new_renewal': ['New']}",,True
+fgss,3,3.0,1,2023-Q2,"{'group_class': ['COMMERCIAL NA OPEN MARKET'], 'placing_basis_group': ['OPEN MARKET - DIRECT'], 'peril_type': ['Non-catastrophe - Pipeburst (NC-P)']}",3.0,False

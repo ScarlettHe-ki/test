@@ -109,10 +109,22 @@ METHOD_NAME = "fgss"
 # ---------------------------------------------------------------------------
 # FAST/FULL toggle + fixed hyperparameters
 # ---------------------------------------------------------------------------
-MODE = "fast"
+MODE = "full"
 M_BY_MODE = {"fast": 199, "full": 999}
 M_CALIBRATION = M_BY_MODE[MODE]
 N_RESTARTS_NULL = 3  # matches 07/09/10's null-replica restart count
+
+H_EMPIRICAL = 999  # FGSS uses EMPIRICAL p-values: each cell's count is ranked against H
+                   # draws from its null, so the p-value is bounded below by 1/(H+1). We
+                   # realize this by computing the exact anchored-NB tail p-value (the
+                   # H->inf limit) and flooring it at 1/(H+1). This is FAITHFUL to the
+                   # FGSS formulation AND essential on this ultra-sparse book: without the
+                   # floor a single claim in a near-empty cell (median cell expected ~0.33)
+                   # yields a ~1e-5 p-value whose lone-cell Berk-Jones score (~11) swamps
+                   # any diffuse injected cluster, collapsing FGSS to a min-p-value
+                   # detector. The floor caps a singleton's BJ at log(H+1)~6.9 so a genuine
+                   # subset of moderately-small p-values can win. H is fixed a priori.
+P_EMPIRICAL_FLOOR = 1.0 / (H_EMPIRICAL + 1)
 
 SCORE_KIND = "BJ"  # "BJ" (default) or "HC"; the paper compares both and found BJ
                    # stronger on several real tasks, so BJ is the reported default and
@@ -144,7 +156,7 @@ def nb_upper_midp(obs, mu, alpha_disp):
     sf_ge = nbinom.sf(obs - 1, r, p)   # P(X >= c)
     pmf = nbinom.pmf(obs, r, p)        # P(X = c)
     midp = sf_ge - 0.5 * pmf           # = P(X>c) + 0.5 P(X=c)
-    return np.clip(midp, 1e-12, 1.0)
+    return np.clip(midp, P_EMPIRICAL_FLOOR, 1.0)  # empirical-p floor (H=999): caps singleton BJ
 
 
 class BerkJonesScorer:
@@ -365,7 +377,7 @@ def summarize_fgss_step(step_df):
 # VALIDATION GATE
 # =============================================================================
 
-def run_validation_gate_fgss(method, base_data, fgss_null, alpha_disp, n_restarts_gate=N_RESTARTS_GATE):
+def run_validation_gate_fgss(method, base_data, fgss_null, alpha_disp, pooled_cal_fpr, n_restarts_gate=N_RESTARTS_GATE):
     print("\n" + "=" * 78)
     print("VALIDATION GATE (FGSS, before the full grid)")
     print("=" * 78)
@@ -380,9 +392,12 @@ def run_validation_gate_fgss(method, base_data, fgss_null, alpha_disp, n_restart
     print(summary.to_string(index=False))
 
     checks = {}
-    fpr = summary["fpr"].mean()
-    checks["clean_fpr_near_5pct"] = bool(0.0 <= fpr <= 0.20)
-    print(f"\n[{'PASS' if checks['clean_fpr_near_5pct'] else 'FAIL'}] Clean-arm FPR = {fpr:.1%} (own FGSS null)")
+    # FPR check uses the POOLED calibration-check FPR (M replicas x 12 windows) — the
+    # statistically robust self-calibration FPR — not the ~20-trial single-window gate
+    # clean arm, which is far too noisy to gate on.
+    checks["clean_fpr_near_5pct"] = bool(0.0 <= pooled_cal_fpr <= 0.10)
+    print(f"\n[{'PASS' if checks['clean_fpr_near_5pct'] else 'FAIL'}] Pooled calibration FPR = {pooled_cal_fpr:.1%} "
+          "(own FGSS null, M replicas x 12 windows)")
 
     power_15 = summary.loc[summary["r"] == 1.5, "power"].iloc[0]
     power_30 = summary.loc[summary["r"] == 3.0, "power"].iloc[0]
@@ -445,7 +460,7 @@ def main():
     null_long.to_csv(out_path, index=False)
     print(f"Saved: {out_path} ({len(null_long)} rows)")
 
-    gate_pass, gate_checks = run_validation_gate_fgss(method, base_data, fgss_null, alpha_disp)
+    gate_pass, gate_checks = run_validation_gate_fgss(method, base_data, fgss_null, alpha_disp, pooled_fpr)
     if not gate_pass:
         print("\nSTOPPING: FGSS validation gate failed. Not launching the full grid.")
         return
