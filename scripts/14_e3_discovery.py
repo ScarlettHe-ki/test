@@ -175,7 +175,7 @@ def part2_persistence(anchored, windows, subsets, findings):
     return persistence, families
 
 
-def plot_trajectories(anchored, windows, subsets, findings, families):
+def plot_trajectories(anchored, windows, subsets, findings, families, out_path=None):
     """For each persistent family, hold its subgroup FIXED (the definition from the
     family's most-significant window) and trace that subgroup's score and q_hat across
     ALL 12 windows. A rising trajectory of a FIXED subgroup is the emergence signature
@@ -219,7 +219,7 @@ def plot_trajectories(anchored, windows, subsets, findings, families):
                   "(shaded = family span; red x-labels = thin windows)")
     axS.legend(frameon=False, fontsize=7, loc="upper left")
     fig.tight_layout()
-    out = config.REPORTS_DIR / "e3_trajectory.png"
+    out = out_path if out_path is not None else config.REPORTS_DIR / "e3_trajectory.png"
     fig.savefig(out, dpi=150)
     plt.close(fig)
     print(f"Saved plot: {out}")

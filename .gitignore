@@ -3,3 +3,4 @@ reports/
 .venv/
 __pycache__/
 *.pyc
+plots/

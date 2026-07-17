@@ -158,7 +158,7 @@ def part1_power_ci(step):
     return power_ci, cross
 
 
-def plot_power_with_ci(power_ci):
+def plot_power_with_ci(power_ci, out_path=None):
     fig, axes = plt.subplots(1, 2, figsize=(13, 5), sharey=True)
     for ax, j in zip(axes, (2, 3)):
         for m in METHODS:
@@ -174,7 +174,7 @@ def plot_power_with_ci(power_ci):
     axes[0].legend(frameon=False, fontsize=8)
     fig.suptitle("Power vs. r by method, with Wilson 95% CIs (M=999)")
     fig.tight_layout()
-    out = config.REPORTS_DIR / "e2_power_with_ci.png"
+    out = out_path if out_path is not None else config.REPORTS_DIR / "e2_power_with_ci.png"
     fig.savefig(out, dpi=150)
     plt.close(fig)
     print(f"Saved plot: {out}")
@@ -230,7 +230,7 @@ def part2_ramp(ramp):
     return ttd, surv, kmax
 
 
-def plot_survival(surv, kmax):
+def plot_survival(surv, kmax, out_path=None):
     fig, axes = plt.subplots(2, 3, figsize=(15, 8), sharex=True, sharey=True)
     for ax, (j, r) in zip(axes.flat, JR):
         for m in METHODS:
@@ -247,7 +247,7 @@ def plot_survival(surv, kmax):
     axes[0, 0].legend(frameon=False, fontsize=8)
     fig.suptitle("Censoring-safe detection curves: cumulative P(detect) vs windows-since-onset (M=999, RAMP_TRIALS=50)")
     fig.tight_layout()
-    out = config.REPORTS_DIR / "e2_ramp_survival.png"
+    out = out_path if out_path is not None else config.REPORTS_DIR / "e2_ramp_survival.png"
     fig.savefig(out, dpi=150)
     plt.close(fig)
     print(f"Saved plot: {out}")
