@@ -1,0 +1,25 @@
+method,j,r,n_total,n_detected,detection_rate,median_ttd_windows,median_defined,median_status
+poisson_mdss,2,1.5,50,21,0.42,,False,"UNDEFINED (censored, rate<=0.5)"
+poisson_mdss,2,2.0,50,30,0.6,2.5,True,reported
+poisson_mdss,2,3.0,50,31,0.62,3.0,True,reported
+poisson_mdss,3,1.5,50,16,0.32,,False,"UNDEFINED (censored, rate<=0.5)"
+poisson_mdss,3,2.0,50,21,0.42,,False,"UNDEFINED (censored, rate<=0.5)"
+poisson_mdss,3,3.0,50,22,0.44,,False,"UNDEFINED (censored, rate<=0.5)"
+fgss,2,1.5,50,22,0.44,,False,"UNDEFINED (censored, rate<=0.5)"
+fgss,2,2.0,50,22,0.44,,False,"UNDEFINED (censored, rate<=0.5)"
+fgss,2,3.0,50,27,0.54,3.0,True,reported
+fgss,3,1.5,50,24,0.48,,False,"UNDEFINED (censored, rate<=0.5)"
+fgss,3,2.0,50,16,0.32,,False,"UNDEFINED (censored, rate<=0.5)"
+fgss,3,3.0,50,29,0.58,3.0,True,reported
+moving_average_mdss,2,1.5,50,10,0.2,,False,"UNDEFINED (censored, rate<=0.5)"
+moving_average_mdss,2,2.0,50,21,0.42,,False,"UNDEFINED (censored, rate<=0.5)"
+moving_average_mdss,2,3.0,50,27,0.54,2.0,True,reported
+moving_average_mdss,3,1.5,50,17,0.34,,False,"UNDEFINED (censored, rate<=0.5)"
+moving_average_mdss,3,2.0,50,20,0.4,,False,"UNDEFINED (censored, rate<=0.5)"
+moving_average_mdss,3,3.0,50,21,0.42,,False,"UNDEFINED (censored, rate<=0.5)"
+epm,2,1.5,50,6,0.12,,False,"UNDEFINED (censored, rate<=0.5)"
+epm,2,2.0,50,13,0.26,,False,"UNDEFINED (censored, rate<=0.5)"
+epm,2,3.0,50,10,0.2,,False,"UNDEFINED (censored, rate<=0.5)"
+epm,3,1.5,50,6,0.12,,False,"UNDEFINED (censored, rate<=0.5)"
+epm,3,2.0,50,13,0.26,,False,"UNDEFINED (censored, rate<=0.5)"
+epm,3,3.0,50,15,0.3,,False,"UNDEFINED (censored, rate<=0.5)"
