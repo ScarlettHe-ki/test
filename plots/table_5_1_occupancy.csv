@@ -1,0 +1,3 @@
+window_length,populated_cells,singleton_share,mean_claims_per_cell,occupancy_verdict
+1-month,4174,0.6137997125059894,2.515333013895544,FAIL
+3-month,3201,0.5157763199000313,3.279912527335208,PASS
